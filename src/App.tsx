@@ -225,7 +225,7 @@ const HeroSection = ({ scrollTo }: { scrollTo: (id: string) => void }) => (
           onClick={() => scrollTo('demo')}
           className="btn-ghost"
         >
-          Live Demo sehen
+          Demo sehen
         </button>
       </div>
     </motion.div>
@@ -298,7 +298,7 @@ const FoundationSection = () => (
       >
         <div className="section-label">Akt II — Malfunction: Das Fundament</div>
         <h2 className="section-h2">Die <span>Grundlage</span> ist bewährt.</h2>
-        <p className="section-p">Malfunction ist seit Jahren das Rückgrat der Fehleranalyse. Mit erweiterten Datenquellen, proaktivem Fehler-Management und strategischen Insights hat es Millionen an Kosten gespart.</p>
+        <p className="section-p">Malfunction ist seit Jahren das Rückgrat der Fehleranalyse. Mit erweiterten Datenquellen, proaktivem Fehler-Management und strategischen Insights hat es bereits Millionen an Kosten gespart.</p>
       </motion.div>
       
       <div className="stat-row">
@@ -472,15 +472,6 @@ const VisionSection = () => (
           <div className="text-2xl text-gray-600">↓</div>
         </div>
         
-        <div className="border border-white/10 bg-white/5 p-8">
-          <div className="text-sm font-bold text-gray-300 mb-3">Integrated Data Layer</div>
-          <div className="text-xs text-brand-dim">Aqua · MRS · IFQS · Smaragd · Echtzeit-Synchronisation</div>
-        </div>
-        
-        <div className="flex items-center justify-center py-4">
-          <div className="text-2xl text-gray-600">↓</div>
-        </div>
-        
         <div className="grid grid-cols-4 gap-2">
           {['Qualität', 'Produktion', 'Service', 'Entwicklung'].map((dept, i) => (
             <motion.div
@@ -603,7 +594,7 @@ const NextStepsSection = () => (
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {[
-          { num: '01', title: 'Zentrale Plattform', desc: 'CRAFT vereint alle bestehenden Systeme (Aqua, MRS, IFQS, Smaragd) in einer Quelle — weg von Silo-Denken.' },
+          { num: '01', title: 'Zentrale Plattform', desc: 'CRAFT visualisiert alle Daten in einer einzigen, intuitiven Oberfläche.' },
           { num: '02', title: 'Intelligente Features', desc: '3D-Modelle + KI-Chat = intuitive Fehleranalyse. Gaming-inspirierte UX für schnellere Entscheidungen.' },
           { num: '03', title: 'Deine Vision', desc: 'Dein Konzept ist der Blueprint. CRAFT ist die erste Anwendung. Gemeinsam skalieren wir für alle Programme.' }
         ].map((card, i) => (
