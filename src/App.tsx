@@ -243,7 +243,7 @@ const HeroSection = ({ scrollTo }: { scrollTo: (id: string) => void }) => (
 
 // --- PROBLEM SECTION ---
 const ProblemSection = () => (
-  <Section id="problem" className="bg-brand-black/50">
+  <Section id="problem" className="bg-brand-black">
     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <motion.div
         initial={{ opacity: 0, x: -40 }}
@@ -361,7 +361,7 @@ const FoundationSection = () => (
 
 // --- LIMIT SECTION ---
 const LimitSection = () => (
-  <Section id="limit" className="bg-brand-black/50">
+  <Section id="limit" className="bg-brand-black">
     <div className="max-w-4xl mx-auto w-full">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -494,7 +494,7 @@ const VisionSection = () => (
 
 // --- DEMO SECTION ---
 const DemoSection = () => (
-  <Section id="demo" className="bg-brand-black/50">
+  <Section id="demo" className="bg-brand-black">
     <div className="max-w-6xl mx-auto w-full">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -525,6 +525,21 @@ const DemoSection = () => (
         </div>
         
         <div className="p-8 bg-linear-to-b from-white/3 to-white/1">
+          {/* Dashboard Preview Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-12 rounded-xl overflow-hidden border border-white/10"
+          >
+            <img 
+              src="/assets/CRAFT Dashboard Idee.png" 
+              alt="CRAFT Dashboard Idee" 
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left: 3D Model Section */}
             <motion.div
@@ -537,7 +552,7 @@ const DemoSection = () => (
               <div className="text-xs font-bold mb-4 text-brand-accent">3D Modell Ansicht</div>
               <div className="bg-black/60 rounded-lg p-8 text-center flex flex-col items-center justify-center min-h-64">
                 <div className="text-4xl mb-4">🚗</div>
-                <div className="text-sm text-gray-500 mb-2">C-Klasse (W206)</div>
+                <div className="text-sm text-gray-500 mb-2">S-Klasse (223)</div>
                 <div className="text-xs text-brand-dim space-y-2 mt-6">
                   <div>Motor: OM654 DEH</div>
                   <div>Status: ⚠️ Kritisch</div>
@@ -557,7 +572,7 @@ const DemoSection = () => (
               <div className="text-xs font-bold mb-4 text-brand-accent">KI-Chat Assistenz</div>
               <div className="space-y-4 text-xs max-h-64 overflow-y-auto">
                 <div className="text-gray-400 text-left">
-                  <strong className="text-white">Du:</strong> "Was sind die aktuellen Probleme bei C-Klasse?"
+                  <strong className="text-white">Du:</strong> "Was sind die aktuellen Probleme bei S-Klasse?"
                 </div>
                 <div className="bg-brand-accent/10 rounded p-3 border-l-2 border-brand-accent">
                   <strong className="text-brand-accent">CRAFT:</strong> "3 kritische Fehler erkannt: Motortemperatur 95°C (Sollwert 85°C), Druck unter Norm, Durchfluss-Sensor Signal schwach. Wahrscheinliche Ursache: Thermostat-Verschleiß."
