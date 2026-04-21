@@ -11,6 +11,7 @@
   --color-brand-accent: #0099FF;
   --color-brand-dim: #A0A5B1;
   --color-brand-glass: rgba(255, 255, 255, 0.05);
+  --color-mercedes-gold: #c0a060;
   
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-display: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -177,6 +178,11 @@
   pointer-events: none;
 }
 
+/* MERCEDES-STYLE RADIAL GRADIENT */
+.mercedes-radial-bg {
+  background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(192, 160, 96, 0.07) 0%, transparent 70%);
+}
+
 /* SECTION STYLING */
 section {
   padding: 120px 48px;
@@ -246,6 +252,38 @@ section {
 
 .cc:hover {
   border-color: #2a2a2a;
+}
+
+.cc.bad {
+  border-color: rgba(231, 76, 60, 0.22);
+}
+
+.cc-label {
+  font-size: 9px;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+}
+
+.cc-val {
+  font-size: 26px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.cc-val.red {
+  color: #e74c3c;
+}
+
+.cc-note {
+  font-size: 10px;
+  color: #3a3a3a;
+  margin-top: 5px;
+}
+
+.cc-note.red {
+  color: rgba(231, 76, 60, 0.55);
 }
 
 .cc.bad {

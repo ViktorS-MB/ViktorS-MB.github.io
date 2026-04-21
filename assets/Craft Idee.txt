@@ -1,0 +1,20 @@
+Was ist das?
+- Weiterentwicklung von MO360 Malfunction
+- Visuelle Darstellung der wichtigsten KPIs via CAD
+
+Warum?
+- Nutzer wünschen einfachere Usability
+- strukturierte Übersicht, Status quo challenge.
+
+Wie?
+- Inspiration durch Gaming Platform. Config möglichkeiten von PS SPielen (GT 7, NoS)
+- Start mit einer Pilotbaureihe.
+
+Wozu?
+- Einfachere Nutzbarkeit für verschiedene Nutzer
+- Schnellere Weg zu bestimmten Daten durch einfache visuelle/blidliche Darstellung
+
+Was soll dargestellt werden?
+- Alle wichtigen Daten aus den Feld sowie intern und Service.
+- Aqua, MRS, IFQS, Smaragd 
+
