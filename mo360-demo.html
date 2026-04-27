@@ -1062,8 +1062,6 @@ function AIChat({ role, contextPart, contextCluster }) {
   const [loading, setLoading] = useState(false);
   const endRef = useRef(null);
 
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
-
   const quickPrompts = [
     contextPart ? `${contextPart} Ursachenanalyse` : "Top Anomalien",
     contextCluster ? `${contextCluster.label} Cluster deep dive` : "Korrelationen zeigen",

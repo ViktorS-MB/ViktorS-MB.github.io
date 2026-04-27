@@ -122,7 +122,7 @@
 
         .progress-bar {
             position: fixed;
-            top: 83px;
+            top: 80px;
             left: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--brand-accent), rgba(0, 153, 255, 0.25), transparent);
@@ -133,8 +133,8 @@
 
         /* SECTIONS */
         section {
-            min-height: 100vh;
-            padding: 96px 32px;
+            min-height: auto;
+            padding: 64px 32px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -145,6 +145,24 @@
 
         section:first-of-type {
             border-top: none;
+        }
+
+        #foundation .architecture-flow {
+            gap: 18px;
+            margin-top: 36px;
+        }
+
+        #foundation .kpi-box {
+            padding: 24px;
+        }
+
+        #foundation .kpi-title {
+            margin-bottom: 18px;
+        }
+
+        #foundation .kpi-tile-grid {
+            gap: 10px;
+            margin-top: 12px;
         }
 
         .section-container {
@@ -1596,6 +1614,13 @@
             background: rgba(0, 153, 255, 0.08);
             }
 
+            .hero-logo {
+            display: block;
+            margin: 0 auto 120px auto;
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+}
     </style>
 </head>
 <body>
@@ -1610,19 +1635,23 @@
     <!-- PROGRESS BAR -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- HERO SECTION -->
-    <section id="hero">
-        <h1 class="fade-in-up">
-            Von der Anomalie<br>zur <em>Entscheidung.</em>
-        </h1>
-        <p class="subtitle fade-in-up delay-1">
-            Malfunction goes to MBQX — die nächste Stufe unserer Digitalstrategie.
-        </p>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <div class="scroll-text">Scrollen</div>
-        </div>
-    </section>
+<section id="hero">
+    <img class="hero-logo fade-in-up"
+        src="./public/malfunction_wortbild_dark.png" 
+        alt="Malfunction MO360 Logo" 
+        class="hero-logo"
+    >
+    <h1 class="fade-in-up">
+        Von der Anomalie<br>zur <em>Entscheidung.</em>
+    </h1>
+    <p class="subtitle fade-in-up delay-1">
+        Malfunction goes to MBQX — die nächste Stufe unserer Digitalstrategie.
+    </p>
+    <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <div class="scroll-text">Scrollen</div>
+    </div>
+</section>
 
     <!-- FOUNDATION SECTION -->
     <section id="foundation">
@@ -1681,8 +1710,8 @@
 
       <!-- A -->
     <div class="kpi-box">
-    <div class="kpi-title">A · DQF/IFQS Universe</div>
-    <h3>IQ Tool & ML Tool</h3>
+    <div class="kpi-title">A · DQF/IFQS</div>
+    <h3>ML Tool</h3>
 
     <div class="kpi-tile-grid">
         <div class="kpi-tile">Stammdatenpflege</div>
@@ -1696,7 +1725,7 @@
 
       <!-- B -->
     <div class="kpi-box">
-    <div class="kpi-title">B · MO360 Data Platform</div>
+    <div class="kpi-title">B · IQ Tool</div>
     <h3>Azure / Silver Layer</h3>
 
     <div class="kpi-tile-grid">
@@ -1712,12 +1741,12 @@
       <!-- C -->
 <div class="kpi-box">
   <div class="kpi-title">C · Malfunction Dashboard</div>
-  <h3>KI‑basierte Entscheidungsplattform</h3>
+  <h3>MO360 Dataplatform</h3>
 
   <div class="kpi-tile-grid">
-    <div class="kpi-tile">250 Daily User</div>
+    <div class="kpi-tile">250 Weekly User</div>
     <div class="kpi-tile">>11 Reports</div>
-    <div class="kpi-tile">Monatliche Updates</div>
+    <div class="kpi-tile">Monatliche Feature-Updates</div>
     <div class="kpi-tile">>1200 Nutzer</div>
   </div>
 </div>
@@ -1727,8 +1756,8 @@
     <section id="limit">
         <div class="section-container">
             <div class="section-label">TEIL II — Die Grenzen</div>
-            <h2>Malfunction ist erfolgreich.<br><span>Aber nicht ausreichend.</span></h2>
-            <p class="section-p" style="margin-bottom: 32px;">PowerBI erreicht seine technische Grenze. Für KI-gestützte Echtzeit-Analyse brauchen wir eine neue Architektur.</p>
+            <h2>Malfunction ist erfolgreich.<br><span>Aber nicht ausreichend</span>.</h2>
+            <p class="section-p" style="margin-bottom: 32px;">PowerBI erreicht seine technische Grenze. Für eine KI-gestützte Echtzeit-Analyse brauchen wir eine neue Architektur.</p>
             
             <div class="three-col-grid fade-in-up">
                 <div class="architecture-layer" style="border: 2px solid rgba(255, 68, 68, 0.3); background: rgba(255, 68, 68, 0.05); padding: 40px 32px; text-align: center; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
@@ -1742,7 +1771,7 @@
                 <div class="architecture-layer" style="border: 2px solid rgba(0, 153, 255, 0.3); background: rgba(0, 153, 255, 0.05); padding: 40px 32px; text-align: center; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
                     <div style="font-size: 20px; font-weight: 600; color: var(--brand-accent);">Architektur</div>
                     <div style="font-size: 14px; color: var(--brand-dim); line-height: 1.8;">
-                         Aktueller Fokus auf Fahrzeugebene; geplant ist das Matching auf <strong style="color: white;">Bauteilebene</strong> (Sachnummer).
+                         Aktueller Fokus auf Fahrzeugebene (VIN/FIN); geplant ist das Matching auf <strong style="color: white;">Bauteilebene</strong> (Sachnummer).
                     </div>
                 </div>
 
@@ -1881,7 +1910,7 @@
         <div class="section-container">
             <div style="text-align: center; margin-bottom: 64px;">
                 <h2 style="text-align: center; margin-bottom: 24px;">Die Reise startet <span>jetzt</span>.</h2>
-                <p class="section-p" style="margin: 0 auto; max-width: 700px;">Malfunction bewährt sich. Malfunction ist die nächste Stufe. Unsere Expertise ist der Schlüssel, lass uns zusammen eine zentrale Plattform bauen.</p>
+                <p class="section-p" style="margin: 0 auto; max-width: 700px;">Malfunction bewährt sich. MBQX ist die nächste Stufe.</p>
             </div>
             
             <div class="three-col-grid" style="margin-bottom: 48px;">
@@ -1893,12 +1922,12 @@
                 <div class="feature-card fade-in-up delay-2">
                     <div class="feature-number">02</div>
                     <div class="feature-title">Intelligente Features</div>
-                    <div class="feature-desc">3D-Modelle + KI-Chat = intuitive Fehleranalyse. Gaming-inspirierte UX für schnellere Entscheidungen.</div>
+                    <div class="feature-desc">3D-Modelle + KI-Chat = intuitive Fehleranalyse. Intuitive UX für schnellere Entscheidungen.</div>
                 </div>
                 <div class="feature-card fade-in-up delay-3">
                     <div class="feature-number">03</div>
                     <div class="feature-title">Unser Konzept</div>
-                    <div class="feature-desc">Wir entwickeln ein innovatives Konzept, dass die Zukunft der Automobilindustrie vorantreibt.</div>
+                    <div class="feature-desc">Wir entwickeln ein innovatives Konzept, dass die Zukunft von Mercedes vorantreibt.</div>
                 </div>
             </div>
         </div>
