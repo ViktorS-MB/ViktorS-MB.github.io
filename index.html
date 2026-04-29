@@ -31,7 +31,7 @@
             --brand-dark: #1C1F26;
             --brand-grey: #252A35;
             --brand-accent: #0099FF;
-            --brand-dim: #A0A5B1;
+            --brand-dim: #FFFFFF;
             --brand-silver: #E0E0E0;
         }
 
@@ -177,7 +177,7 @@
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--brand-dim);
+            color: var(--brand-accent);
             margin-bottom: 16px;
         }
 
@@ -207,6 +207,144 @@
             line-height: 1.7;
             font-weight: 300;
             opacity: 0.9;
+        }
+
+        .section-p--spaced {
+            margin-bottom: 48px;
+        }
+
+        .section-p--medium {
+            margin-bottom: 32px;
+        }
+
+        .detail-note {
+            font-size: 11px;
+            color: var(--brand-dim);
+        }
+
+        .foundation-image {
+            width: 100%;
+            max-width: 1000px;
+            margin: 48px auto 0;
+            display: block;
+            border-radius: 8px;
+            opacity: 0.9;
+        }
+
+        .architecture-panel {
+            border: 2px solid rgba(0, 153, 255, 0.3);
+            background: rgba(0, 153, 255, 0.05);
+            padding: 40px 32px;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .architecture-panel.powerbi {
+            border-color: rgba(255, 68, 68, 0.3);
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        .architecture-panel-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--brand-accent);
+        }
+
+        .architecture-panel-title.powerbi {
+            color: #ff4444;
+        }
+
+        .architecture-panel-desc {
+            font-size: 14px;
+            color: var(--brand-dim);
+            line-height: 1.8;
+        }
+
+        .architecture-panel-desc strong {
+            color: white;
+        }
+
+        .arrow--large {
+            text-align: center;
+            color: var(--brand-accent);
+            padding: 12px 0;
+        }
+
+        .section-gap {
+            margin-top: 24px;
+        }
+
+        .demo-fullscreen {
+            padding: 0;
+            background: #000;
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .demo-fullscreen-header {
+            padding: 24px 32px 12px;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-shrink: 0;
+        }
+
+        .demo-fullscreen-inner {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .demo-fullscreen-card {
+            flex: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 16px 48px rgba(0, 153, 255, 0.1);
+            display: flex;
+        }
+
+        .demo-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+            display: block;
+        }
+
+        .centered-heading {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .centered-copy {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .footer-tagline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--brand-dim);
         }
 
         /* HERO SECTION */
@@ -308,9 +446,7 @@
 
         .scroll-text {
             font-size: 11px;
-            color: var(--brand-dim);
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            color: #FFFFFF;
             opacity: 0.7;
         }
 
@@ -669,9 +805,12 @@
         }
 
         .architecture-layer:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 153, 255, 0.15);
+        }
+
+        .architecture-layer.powerbi:hover {
+            box-shadow: 0 8px 24px rgba(255, 68, 68, 0.24);
         }
 
         .architecture-layer-title {
@@ -700,19 +839,14 @@
             font-size: 24px;
             line-height: 24px;
             font-weight: bold;
-            color: rgba(0, 153, 255, 0.5);
+            color: var(--brand-accent);
             transition: all 0.3s ease;
         }
 
         .arrow-container {
             text-align: center;
-            color: rgba(0, 153, 255, 0.5);
-            padding: 12px 0;
-        }
-
-        .arrow:hover {
             color: var(--brand-accent);
-        } 
+        }
 
         .feature-card {
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -793,7 +927,7 @@
             border-radius: 6px;
             padding: 6px 12px;
             font-size: 10px;
-            color: #888;
+            color: #FFFFFF;
             font-family: 'Courier New', monospace;
         }
 
@@ -893,7 +1027,7 @@
 
         .footer-text {
             font-size: 12px;
-            color: #888;
+            color: #FFFFFF;
             letter-spacing: 1px;
         }
 
@@ -1559,7 +1693,7 @@
 
             .architecture-flow {
             display: grid;
-            grid-template-columns: 1fr auto 1fr auto 1fr;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
             gap: 24px;
             align-items: stretch;
             margin-top: 48px;
@@ -1638,8 +1772,7 @@
 <section id="hero">
     <img class="hero-logo fade-in-up"
         src="./public/malfunction_wortbild_dark.png" 
-        alt="Malfunction MO360 Logo" 
-        class="hero-logo"
+        alt="Malfunction MO360 Logo"
     >
     <h1 class="fade-in-up">
         Von der Anomalie<br>zur <em>Entscheidung.</em>
@@ -1658,44 +1791,44 @@
         <div class="section-container">
             <div class="section-label">TEIL I — Malfunction: Das Fundament</div>
             <h2>Die <span>Grundlage</span> ist bewährt.</h2>
-            <p class="section-p" style="margin-bottom: 48px;">Malfunction ist seit Jahren das Rückgrat der Fehleranalyse.</p>
+            <p class="section-p section-p--spaced">Malfunction ist seit Jahren das Rückgrat Feldanalyse.</p>
             <div class="stat-row">
                 <div class="stat-box fade-in-up delay-1">
                     <div class="stat-num">&gt; 11</div>
                     <div class="stat-lbl">Integrierte Sensoren<br>
-                    <span style="font-size: 11px;">(DQF, IFQS, MRS, Plant View, VPC, Q-Live)</span></div>
+                    <span class="detail-note">(DQF, IFQS, MRS, Plant View, VPC, Q-Live)</span></div>
                 </div>
                 <div class="stat-box fade-in-up delay-2">
                     <div class="stat-num">täglich</div>
-                    <div class="stat-lbl">Datenaktualisierung<br><span style="font-size: 11px;">(Jeden Tag morgens)</span></div>
+                    <div class="stat-lbl">Datenaktualisierung<br><span class="detail-note">(Jeden Tag morgens)</span></div>
                 </div>
                 <div class="stat-box fade-in-up delay-3">
                     <div class="stat-num">&gt; 1000</div>
-                    <div class="stat-lbl">User freigeschaltet<br><span style="font-size: 11px;">(Nutzer aus den verschiedensten Abteilungen)</span></div>
+                    <div class="stat-lbl">User freigeschaltet<br><span class="detail-note">(Nutzer aus den verschiedensten Abteilungen)</span></div>
                 </div>
                 <div class="stat-box fade-in-up delay-4">
                     <div class="stat-num">&gt; 30–40%</div>
-                    <div class="stat-lbl">Analysezeit-Reduktion<br><span style="font-size: 11px;">(vs. manuelle Recherche)</span></div>
+                    <div class="stat-lbl">Analysezeit-Reduktion<br><span class="detail-note">(vs. manuelle Recherche)</span></div>
                 </div>
             </div>
-            <img src="./public/Sensors.png" alt="Sensors" style="width: 100%; max-width: 1000px; margin: 48px auto 0; display: block; border-radius: 8px; opacity: 0.9;">
+            <img class="foundation-image" src="./public/Sensors.png" alt="Sensors">
 
             <div class="roi-box fade-in-up delay-3">
                 <div class="roi-item">
-                    <div class="roi-value">>1.562.000 €</div>
+                    <div class="roi-value">> 1.562.000 €</div>
                     <div class="roi-label">Insgesamte Einsparung</div>
-                    <div class="roi-desc">Bei Investition von 200 - 300k€</div>
-        
+
                 </div>
                 <div class="roi-item">
-                    <div class="roi-value">>60.000</div>
-                    <div class="roi-label">DQF Kundenrückmeldungen</div>
-                    <div class="roi-desc">Weltweiter Rollout (GER, FR, UK, CN, USA)</div>
+                    <div class="roi-value">> 110.000</div>
+                    <div class="roi-label">DQF Kundenrückmeldungen in den letzten 3 Jahren</div>
+                    <div class="roi-desc">Weltweiter Rollout (GER, FR, UK, CN, USA).</div>
                 </div>
+
                 <div class="roi-item">
-                    <div class="roi-value">>85.000</div>
-                    <div class="roi-label">gemeldete Probleme</div>
-                    <div class="roi-desc">Alle im Dashboard geclustert, rekodiert und auffindbar.</div>
+                    <div class="roi-value">> 183.000</div>
+                    <div class="roi-label">gemeldete Probleme in den letzen 3 Jahren</div>
+                    <div class="roi-desc">Alle im Dashboard nach Entry, Core, Premium TEV und Van Fahrzeuge geclustert.</div>
                 </div>
             </div>
         </div>
@@ -1704,20 +1837,19 @@
     <!-- KPI BASELINE SECTION -->
     <section>
   <div class="section-container">
-    <h2>Wie ist Malfunction <span>aufgebaut</span>?</h2>
+    <h2>Team<span> Steuerung Qualität Serie MBC</span> — <br> IT Architektur</h2>
 
     <div class="architecture-flow">
 
       <!-- A -->
     <div class="kpi-box">
-    <div class="kpi-title">A · DQF/IFQS</div>
-    <h3>ML Tool</h3>
+    <div class="kpi-title">A · DQF / IFQS Sensor</div>
+    <h3>Mailout über Mercedes Me App</h3>
 
     <div class="kpi-tile-grid">
-        <div class="kpi-tile">Stammdatenpflege</div>
-        <div class="kpi-tile">Ressource Editor</div>
-        <div class="kpi-tile">Sonderumfragen</div>
-        <div class="kpi-tile">User Management</div>
+        <div class="kpi-tile">Aufnahme der Beanstandungen der Kunden</div>
+        <div class="kpi-tile">IFQS360 / IFQS45</div>
+        <div class="kpi-tile">DQF</div>
     </div>
     </div>
 
@@ -1726,11 +1858,26 @@
       <!-- B -->
     <div class="kpi-box">
     <div class="kpi-title">B · IQ Tool</div>
-    <h3>Azure / Silver Layer</h3>
+    <h3>Verwaltungssystem (Datenmanagement)</h3>
 
     <div class="kpi-tile-grid">
-        <div class="kpi-tile">Databricks</div>
-        <div class="kpi-tile">User Management</div>
+        <div class="kpi-tile">Stammdatenpflege</div>
+        <div class="kpi-tile">Recodierplattform</div>
+        <div class="kpi-tile">Sonderumfragen</div>
+        <div class="kpi-tile">ML Tool</div>
+    </div>
+    </div>
+
+      <div class="flow-arrow">→</div>
+
+      <!-- C -->
+    <div class="kpi-box">
+    <div class="kpi-title">C · MO360 Data Platform</div>
+    <h3>IFQS Universe</h3>
+
+    <div class="kpi-tile-grid">
+        <div class="kpi-tile">Cloudbasiert</div>
+        <div class="kpi-tile">4 Tabellen / 1 Datenprodukt</div>
         <div class="kpi-tile">DDX Freischaltung</div>
         <div class="kpi-tile">120+ Konsumenten</div>
     </div>
@@ -1738,18 +1885,18 @@
 
       <div class="flow-arrow">→</div>
 
-      <!-- C -->
-<div class="kpi-box">
-  <div class="kpi-title">C · Malfunction Dashboard</div>
-  <h3>MO360 Dataplatform</h3>
+      <!-- D -->
+    <div class="kpi-box">
+      <div class="kpi-title">D · Malfunction Dashboard</div>
+      <h3>KPI-basierte Plattform</h3>
 
-  <div class="kpi-tile-grid">
-    <div class="kpi-tile">250 Weekly User</div>
-    <div class="kpi-tile">>11 Reports</div>
-    <div class="kpi-tile">Monatliche Feature-Updates</div>
-    <div class="kpi-tile">>1200 Nutzer</div>
-  </div>
-</div>
+      <div class="kpi-tile-grid">
+        <div class="kpi-tile">250 Weekly User</div>
+        <div class="kpi-tile">>11 Reports</div>
+        <div class="kpi-tile">Monatliche Feature-Updates</div>
+        <div class="kpi-tile">>1000 Nutzer freigeschaltet</div>
+      </div>
+    </div>
 </section>
 
     <!-- LIMIT SECTION -->
@@ -1757,28 +1904,28 @@
         <div class="section-container">
             <div class="section-label">TEIL II — Die Grenzen</div>
             <h2>Malfunction ist erfolgreich.<br><span>Aber nicht ausreichend</span>.</h2>
-            <p class="section-p" style="margin-bottom: 32px;">PowerBI erreicht seine technische Grenze. Für eine KI-gestützte Echtzeit-Analyse brauchen wir eine neue Architektur.</p>
+            <p class="section-p section-p--medium">PowerBI erreicht seine technische Grenze. Für eine KI-gestützte Echtzeit-Analyse brauchen wir eine neue Architektur.</p>
             
             <div class="three-col-grid fade-in-up">
-                <div class="architecture-layer" style="border: 2px solid rgba(255, 68, 68, 0.3); background: rgba(255, 68, 68, 0.05); padding: 40px 32px; text-align: center; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
-                    <div style="font-size: 20px; font-weight: 600; color: #ff4444;">PowerBI-Grenze</div>
-                    <div style="font-size: 14px; color: var(--brand-dim); line-height: 1.8;">
-                        <strong style="color: white;">4,98 GB</strong> durch komplexe Modellierung & Datenquellen. <br>
+                <div class="architecture-layer architecture-panel powerbi">
+                    <div class="architecture-panel-title powerbi">PowerBI-Grenze</div>
+                    <div class="architecture-panel-desc">
+                        <strong>4,98 GB</strong> durch komplexe Modellierung & Datenquellen. <br>
                         (normaler PowerBI Use Case liegt bei 580 MB)
                     </div>
                 </div>
 
-                <div class="architecture-layer" style="border: 2px solid rgba(0, 153, 255, 0.3); background: rgba(0, 153, 255, 0.05); padding: 40px 32px; text-align: center; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
-                    <div style="font-size: 20px; font-weight: 600; color: var(--brand-accent);">Architektur</div>
-                    <div style="font-size: 14px; color: var(--brand-dim); line-height: 1.8;">
-                         Aktueller Fokus auf Fahrzeugebene (VIN/FIN); geplant ist das Matching auf <strong style="color: white;">Bauteilebene</strong> (Sachnummer).
+                <div class="architecture-layer architecture-panel">
+                    <div class="architecture-panel-title">Architektur</div>
+                    <div class="architecture-panel-desc">
+                         Aktueller Fokus auf Fahrzeugebene (VIN/FIN); geplant ist das Matching auf <strong>Bauteilebene</strong> (Sachnummer).
                     </div>
                 </div>
 
-                <div class="architecture-layer" style="border: 2px solid rgba(0, 153, 255, 0.3); background: rgba(0, 153, 255, 0.05); padding: 40px 32px; text-align: center; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
-                    <div style="font-size: 20px; font-weight: 600; color: var(--brand-accent);">Key Features</div>
-                    <div style="font-size: 14px; color: var(--brand-dim); line-height: 1.8;">
-                        3D-Modelle + Live KPI-Updates + KI-Chat für <strong style="color: white;">Maximale Usability</strong> und schnelle Analysen.
+                <div class="architecture-layer architecture-panel">
+                    <div class="architecture-panel-title">Key Features</div>
+                    <div class="architecture-panel-desc">
+                        3D-Modelle + Live KPI-Updates + KI-Chat für <strong>Maximale Usability</strong> und schnelle Analysen.
                     </div>
                 </div>
             </div>
@@ -1788,17 +1935,19 @@
     <!-- VISION SECTION -->
     <section id="vision">
         <div class="section-container">
-            <div class="section-label">TEIL IV — Malfunction: Die Vision</div>
+            <div class="section-label">TEIL III — Malfunction: Die Vision</div>
             <h2>Malfunction meets <span>Intelligent UX</span>.</h2>
-            <p class="section-p" style="margin-bottom: 48px;">3D-Modellvisualisierung, KI-Chat-Assistenz, strukturierte Datenübersicht — alles für intuitivere Fehleranalyse und schnellere Entscheidungen.</p>
+            <p class="section-p section-p--spaced">3D-Modellvisualisierung, KI-Chat-Assistenz, strukturierte Datenübersicht — alles für intuitivere Fehleranalyse und schnellere Entscheidungen.</p>
             
             <div class="architecture-chart">
                 <div class="architecture-layer fade-in-up delay-1">
                     <div class="architecture-layer-title">KI-Schicht · Malfunction Intelligence</div>
                     <div class="architecture-layer-desc">3D-Modelle · KI-Chat für Problemanalyse · Reports · Anomalieerkennung</div>
                 </div>
-                <div class="arrow" style="text-align: center; color: #666; padding: 12px 0;">↓</div>
-                <div class="three-col-grid" style="margin-top: 24px;">
+                <div class="arrow-container">
+                    <div class="arrow">↓</div>
+                </div>
+                <div class="three-col-grid">
                     <div class="architecture-layer fade-in-up delay-2">
                         <div class="architecture-layer-title">RD / Konzept Reporting</div>
                         <div class="architecture-layer-desc">Individuelle Views</div>
@@ -1826,7 +1975,7 @@
     <!-- KPI TRANSFORMATION SECTION -->
     <section id="kpi-transformation">
         <div class="section-container">
-            <div class="section-label">TEIL V — Performance-Ziele</div>
+            <div class="section-label">TEIL IV — Performance-Ziele</div>
             <h2>Unsere Ziele mit<span> Malfunction</span>.</h2>
             
             <div class="comparison-grid">
@@ -1878,26 +2027,25 @@
 
                     <div class="comparison-item comparison-after">
                         <div class="comparison-item-label">Usability</div>
-                     <div class="comparison-item-value">100% Nutzerfreundlichkeit
-                    
+                        <div class="comparison-item-value">100% Nutzerfreundlichkeit</div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
 
     <!-- DEMO SECTION -->
-    <section id="demo" style="padding: 0; background: #000; min-height: 100vh; height: 100vh; display: flex; flex-direction: column; justify-content: stretch; overflow: hidden; width: 100%;">
-        <div style="padding: 24px 32px 12px; background: rgba(0, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.05); flex-shrink: 0;">
-            <div class="section-label">TEIL VI — Demo</div>
+    <section id="demo" class="demo-fullscreen">
+        <div class="demo-fullscreen-header">
+            <div class="section-label">TEIL V — Demo</div>
             <h2>Malfunction macht Probleme <span>sichtbar</span>.</h2>
         </div>
         
-        <div style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
-            <div style="flex: 1; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; overflow: hidden; background: #000; box-shadow: 0 16px 48px rgba(0, 153, 255, 0.1); display: flex;">
+        <div class="demo-fullscreen-inner">
+            <div class="demo-fullscreen-card">
                 <iframe 
                     src="./mo360-demo.html" 
-                    style="width: 100%; height: 100%; border: none; background: #000; display: block"
+                    class="demo-iframe"
                     title="MO360  Demo"
                     allowFullScreen
                 ></iframe>
@@ -1908,12 +2056,12 @@
     <!-- NEXT STEPS SECTION -->
     <section id="next-steps">
         <div class="section-container">
-            <div style="text-align: center; margin-bottom: 64px;">
-                <h2 style="text-align: center; margin-bottom: 24px;">Die Reise startet <span>jetzt</span>.</h2>
-                <p class="section-p" style="margin: 0 auto; max-width: 700px;">Malfunction bewährt sich. MBQX ist die nächste Stufe.</p>
+            <div class="centered-heading">
+                <h2>Die Reise startet <span>jetzt</span>.</h2>
+                <p class="section-p centered-copy">Malfunction bewährt sich. MBQX ist die nächste Stufe.</p>
             </div>
             
-            <div class="three-col-grid" style="margin-bottom: 48px;">
+            <div class="three-col-grid">
                 <div class="feature-card fade-in-up delay-1">
                     <div class="feature-number">01</div>
                     <div class="feature-title">Zentrale Plattform</div>
@@ -1936,8 +2084,8 @@
     <!-- FOOTER -->
     <footer class="footer-section">
         <div class="footer-content">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px;">
-                <span style="font-size: 12px; font-weight: 600; font-family: 'Roboto', sans-serif; letter-spacing: 1px;">MO360 Malfunction</span>
+            <div class="footer-tagline">
+                <span class="footer-note">MO360 Malfunction goes MBQX</span>
             </div>
             <div class="footer-text">Vertraulich · Interne Verwendung · April 2026</div>
         </div>

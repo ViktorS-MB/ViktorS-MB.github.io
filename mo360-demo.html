@@ -1883,7 +1883,7 @@ function PartDetailView({ part, category, onBack, accent, factor }) {
   return (
     <div style={{
       flex: 1, background: MB.surface, border: `1px solid ${MB.border}`,
-      borderRadius: 8, overflow: "auto",
+      borderRadius: 8, overflow: "hidden",
       animation: "fadeUp 0.25s ease",
     }}>
       <div style={{
@@ -1935,7 +1935,7 @@ function PartDetailView({ part, category, onBack, accent, factor }) {
         </div>
       </div>
 
-      <div style={{ padding: 22, display: "flex", flexDirection: "column", gap: 18 }}>
+      <div style={{ flex: 1, padding: 22, display: "flex", flexDirection: "column", gap: 18, overflow: "auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
           {[
             { l: "30d Trend", v: noData ? "—" : `${detail.trendPct > 0 ? "+" : ""}${detail.trendPct}%`, col: detail.trendPct > 5 ? MB.red : detail.trendPct < -5 ? MB.green : MB.silver },
@@ -2081,13 +2081,14 @@ function VehicleInspectionPanel({ role }) {
       border: `1px solid ${MB.border}`,
       borderRadius: 8, overflow: "hidden",
       display: "flex", flexDirection: "column",
+      position: "relative",
     }}>
       <div style={{
         padding: "14px 22px", borderBottom: `1px solid ${MB.border}`,
         display: "flex", justifyContent: "space-between", alignItems: "center",
       }}>
         <div style={{ fontSize: 10, color: MB.textMuted, letterSpacing: 2 }}>
-          VEHICLE INSPECTION · S-CLASS W223 · {selectedPart ? `> ${selectedPart.label.toUpperCase()}` : "OVERVIEW"}
+          VEHICLE INSPECTION · S-CLASS W223 · OVERVIEW
         </div>
         <div style={{ fontSize: 9, color: MB.textSubtle, letterSpacing: 1.5 }}>
           Malfunction.mercedes-benz.internal / dashboard
@@ -2096,30 +2097,56 @@ function VehicleInspectionPanel({ role }) {
 
       <div style={{ flex: 1, display: "flex", padding: 18, gap: 0, overflow: "hidden" }}>
         <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden", minWidth: 0 }}>
-          {!selectedPart && (
-            <SourceBadgeRow
-              activeSources={activeSources}
-              setActiveSources={setActiveSources}
-              factor={factor}
-            />
-          )}
-          {!selectedPart && (
-            <PartCategoryTabs active={activeCategory} setActive={setActiveCategory} accent={accent} />
-          )}
-          {!selectedPart ? (
-            <div style={{
-              flex: 1, marginTop: 16,
-              display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 12, alignContent: "start",
-              overflow: "auto", paddingRight: 4, paddingBottom: 4,
-            }}>
-              {parts.map(p => (
-                <PartTile key={p.id} part={p} accent={accent}
-                  factor={factor}
-                  onClick={() => setSelectedPart(p)} />
-              ))}
-            </div>
-          ) : (
+          <SourceBadgeRow
+            activeSources={activeSources}
+            setActiveSources={setActiveSources}
+            factor={factor}
+          />
+          <PartCategoryTabs active={activeCategory} setActive={setActiveCategory} accent={accent} />
+          <div style={{
+            flex: 1, marginTop: 16,
+            display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 12, alignContent: "start",
+            overflow: "auto", paddingRight: 4, paddingBottom: 4,
+          }}>
+            {parts.map(p => (
+              <PartTile key={p.id} part={p} accent={accent}
+                factor={factor}
+                onClick={() => setSelectedPart(p)} />
+            ))}
+          </div>
+        </div>
+
+        <VehicleSpecsSidebar activeCategory={activeCategory} factor={factor} parts={parts} />
+      </div>
+
+      {/* Fullscreen Modal for Part Detail */}
+      {selectedPart && (
+        <div style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: "rgba(0, 0, 0, 0.8)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000,
+          animation: "fadeUp 0.25s ease",
+        }}
+        onClick={() => setSelectedPart(null)} // Close on backdrop click
+        >
+          <div style={{
+            width: "90vw",
+            height: "90vh",
+            maxWidth: "1200px",
+            background: MB.surface,
+            border: `1px solid ${MB.border}`,
+            borderRadius: 12,
+            overflow: "auto",
+            display: "flex",
+            flexDirection: "column",
+          }}
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
             <PartDetailView
               part={selectedPart}
               category={PART_CATEGORIES.find(c => c.id === activeCategory)?.label || ""}
@@ -2127,11 +2154,9 @@ function VehicleInspectionPanel({ role }) {
               accent={accent}
               factor={factor}
             />
-          )}
+          </div>
         </div>
-
-        <VehicleSpecsSidebar activeCategory={activeCategory} factor={factor} parts={parts} />
-      </div>
+      )}
     </div>
   );
 }
@@ -2144,6 +2169,8 @@ function Dashboard({ role, onBack }) {
   const [scrubberDay, setScrubberDay] = useState(45);
   const [activeTab, setActiveTab] = useState("vehicle");
   const [chatOpen, setChatOpen] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const dashboardRef = useRef(null);
 
   const kpis = KPI_BY_ROLE[role.id] || KPI_BY_ROLE.quality;
   const anomalies = kpis.filter(k => k.status !== "good").length;
@@ -2159,8 +2186,41 @@ function Dashboard({ role, onBack }) {
     { id: "timeline", label: "Timeline", icon: "⏤" },
   ];
 
+  const toggleFullscreen = () => {
+    if (!isFullscreen) {
+      if (dashboardRef.current.requestFullscreen) {
+        dashboardRef.current.requestFullscreen();
+        setIsFullscreen(true);
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen]);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
   return (
-    <div style={{
+    <div ref={dashboardRef} style={{
       minHeight: "100vh",
       background: MB.black,
       fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif",
@@ -2253,6 +2313,16 @@ function Dashboard({ role, onBack }) {
           fontSize: 10, cursor: "pointer",
           fontFamily: "inherit", letterSpacing: 2, transition: "all 0.2s",
         }}>◈ AI</button>
+
+        {/* Fullscreen Toggle */}
+        <button onClick={toggleFullscreen} style={{
+          background: isFullscreen ? MB.accent + "18" : "transparent",
+          border: `1px solid ${isFullscreen ? MB.accent : MB.border}`,
+          borderRadius: 6, padding: "6px 14px",
+          color: isFullscreen ? MB.accent : MB.textMuted,
+          fontSize: 10, cursor: "pointer",
+          fontFamily: "inherit", letterSpacing: 2, transition: "all 0.2s",
+        }}>⛶ FS</button>
       </header>
 
       {/* ── BODY ── */}
